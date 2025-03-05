@@ -1,5 +1,6 @@
 package EjemploSincronizacion;
 
+
 class Contador {
     private int count = 0;
 
@@ -12,9 +13,13 @@ class Contador {
     }
 }
 
+/**
+ * Clase que no utiliza sincronización
+ */
 class WithoutSynchronization {
 
-    public WithoutSynchronization() {}
+    public WithoutSynchronization() {
+    }
 
     public void execute() throws InterruptedException {
         Contador contador = new Contador();
@@ -36,12 +41,13 @@ class WithoutSynchronization {
         hilo1.join();
         hilo2.join();
 
-        System.out.println("Valor final: " + contador.getCount());
+        System.out.println("Valor final sin sinchronyzed: " + contador.getCount());
     }
 }
 
 class WithSynchronization {
-    public WithSynchronization() {}
+    public WithSynchronization() {
+    }
 
     public void execute() throws InterruptedException {
         Contador contador = new Contador();
@@ -69,7 +75,7 @@ class WithSynchronization {
         hilo1.join();
         hilo2.join();
 
-        System.out.println("Valor final: " + contador.getCount());
+        System.out.println("Valor final con synchronyzed: " + contador.getCount());
     }
 }
 
